@@ -18,22 +18,26 @@ namespace MubaNet2
         Dictionary<String, int> dictionary;
         Dictionary<char, string> codes;
 
-        public Form4(string cod, int lentext, int lencode, int lendict, string texthaf1, Dictionary<String, int> dictionary1, Dictionary<char, string> codes1)
+        public Form4(string cod, int lentext, string texthaf1, Dictionary<String, int> dictionary1, Dictionary<char, string> codes1, List<int> code)
         {
             InitializeComponent();
             compText.Text = cod;
-/*            Lentext.Text = "Длинна изначального текста = " + lentext.ToString();
-            Lencode.Text = "Длинна сжатого текста = " + lencode.ToString();
-            Lendict.Text = "Длинна словаря = " + lendict.ToString();
-            label1.Text = "Избыточность кода = " + (lentext - lencode - lendict).ToString();*/
-/*            label2.Text = "Сжатие = " + (lentext - lencode - lendict).ToString();*/
-            File.WriteAllText("C:/Users/Shama/Downloads/test.txt", cod);
+            Lentext.Text = "Длинна изначального текста = " + lentext.ToString();
+            Lencode.Text = "Длинна сжатого текста = " + code.Count.ToString();
+            Lendict.Text = "Длинна словаря = " + dictionary1.Count.ToString();
+            label1.Text = "Избыточность кода = " + (lentext - code.Count - dictionary1.Count).ToString();
+
             hafmrext.Text = texthaf1.ToString();
-            foreach (var smb in codes1) //перебираем словарь и кидаем его в ТБ
+            foreach (var smb in codes1)
             {
                 richTextBox1.Text += ($"{smb.Key} = {smb.Value}" + " " + "\n");
             }
             texthaf = texthaf1;
+            /*            label4.Text = "Длинна сжатого текста = " + texthaf1.Length.ToString();
+                        label3.Text = "Длинна словаря = " + codes1.Count.ToString();*/
+            string t = texthaf1.Replace(" ", "");
+            label2.Text = "Избыточность кода = " + (lentext - (t.Length / 8)).ToString();
+
             dictionary = dictionary1;
             codes = codes1;
         }

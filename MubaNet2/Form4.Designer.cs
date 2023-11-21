@@ -38,6 +38,9 @@
             this.half_unfoldedtext = new System.Windows.Forms.RichTextBox();
             this.decipherButton = new System.Windows.Forms.Button();
             this.finaltext = new System.Windows.Forms.RichTextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // compText
@@ -96,13 +99,13 @@
             // 
             this.richTextBox1.Location = new System.Drawing.Point(311, 246);
             this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(144, 215);
+            this.richTextBox1.Size = new System.Drawing.Size(189, 215);
             this.richTextBox1.TabIndex = 7;
             this.richTextBox1.Text = "";
             // 
             // half_unfoldedtext
             // 
-            this.half_unfoldedtext.Location = new System.Drawing.Point(670, 12);
+            this.half_unfoldedtext.Location = new System.Drawing.Point(905, 18);
             this.half_unfoldedtext.Name = "half_unfoldedtext";
             this.half_unfoldedtext.Size = new System.Drawing.Size(290, 215);
             this.half_unfoldedtext.TabIndex = 8;
@@ -110,7 +113,7 @@
             // 
             // decipherButton
             // 
-            this.decipherButton.Location = new System.Drawing.Point(311, 217);
+            this.decipherButton.Location = new System.Drawing.Point(332, 217);
             this.decipherButton.Name = "decipherButton";
             this.decipherButton.Size = new System.Drawing.Size(144, 23);
             this.decipherButton.TabIndex = 9;
@@ -120,17 +123,45 @@
             // 
             // finaltext
             // 
-            this.finaltext.Location = new System.Drawing.Point(670, 246);
+            this.finaltext.Location = new System.Drawing.Point(905, 252);
             this.finaltext.Name = "finaltext";
             this.finaltext.Size = new System.Drawing.Size(290, 215);
             this.finaltext.TabIndex = 10;
             this.finaltext.Text = "";
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(506, 318);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(44, 16);
+            this.label2.TabIndex = 14;
+            this.label2.Text = "label2";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(506, 283);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(0, 16);
+            this.label3.TabIndex = 13;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(506, 255);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(0, 16);
+            this.label4.TabIndex = 12;
+            // 
             // Form4
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1044, 473);
+            this.ClientSize = new System.Drawing.Size(1250, 473);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.finaltext);
             this.Controls.Add(this.decipherButton);
             this.Controls.Add(this.half_unfoldedtext);
@@ -160,5 +191,8 @@
         private System.Windows.Forms.RichTextBox half_unfoldedtext;
         private System.Windows.Forms.Button decipherButton;
         private System.Windows.Forms.RichTextBox finaltext;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
     }
 }

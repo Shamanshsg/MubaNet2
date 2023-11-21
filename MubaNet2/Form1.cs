@@ -336,10 +336,12 @@ namespace MubaNet2
             StringBuilder compressed = new StringBuilder();
             foreach (var character in code)
                 compressed.Append(String.Format($"{character} "));
-            Node Tree = BuildHuffmanTree(compressed.ToString());
+
+            Node Tree = BuildHuffmanTree(richTextBox1.Text);
             GetCodes(Tree);
-            string texthaf = Encode(compressed.ToString(), codes);
-            Form4 x = new Form4(compressed.ToString(), richTextBox1.Text.Length, code.Count, dictionary.Count(), texthaf, dictionary, codes);
+            string texthaf = Encode(richTextBox1.Text, codes);
+
+            Form4 x = new Form4(compressed.ToString(), richTextBox1.Text.Length, texthaf, dictionary, codes, code);
             x.Show();
         }
 
