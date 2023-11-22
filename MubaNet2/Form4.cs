@@ -17,6 +17,7 @@ namespace MubaNet2
         string texthaf;
         Dictionary<String, int> dictionary;
         Dictionary<char, string> codes;
+        string cod1;
 
         public Form4(string cod, int lentext, string texthaf1, Dictionary<String, int> dictionary1, Dictionary<char, string> codes1, List<int> code)
         {
@@ -37,40 +38,33 @@ namespace MubaNet2
                         label3.Text = "Длинна словаря = " + codes1.Count.ToString();*/
             string t = texthaf1.Replace(" ", "");
             label2.Text = "Избыточность кода = " + (lentext - (t.Length / 8)).ToString();
-
+            cod1 = cod;
             dictionary = dictionary1;
             codes = codes1;
         }
 
         private void decipherButton_Click(object sender, EventArgs e)
         {
-            List<int> code = decipher_step_one();
+            finaltext.Text = decipher_step_one();
             StringBuilder compressed = new StringBuilder();
-            foreach (var character in code)
-                compressed.Append(String.Format($"{character} "));
-            half_unfoldedtext.Text = compressed.ToString();
-            finaltext.Text = decipher_step_two(code);
+
+            /*            foreach (var character in comp)
+                            compressed.Append(String.Format($"{character} "));
+                        half_unfoldedtext.Text = compressed.ToString();*/
+            half_unfoldedtext.Text = decipher_step_two();
         }
 
-        private List<int> decipher_step_one()
+        private string decipher_step_one()
         {
-            StringBuilder number = new StringBuilder();
-            string[] code = texthaf.Split(' ');
-            List<int> half_unfolded = new List<int>();
-            string spase = codes[' '];
-            for (int i = 0; i < code.Length; i++)
+            string[] half = texthaf.Split(' ');
+            StringBuilder text = new StringBuilder();
+            foreach (var ch in half)
             {
-                if (code[i].ToString() != spase)
-                {
-                    number.Append(Getkey1(code[i].ToString(), codes));
-                }
-                else
-                {
-                    half_unfolded.Add(Convert.ToInt32(number.ToString()));
-                    number = new StringBuilder();
-                }
+                text.Append(Getkey1(ch, codes));
             }
-            return half_unfolded;
+            return text.ToString();
+
+
         }
 
         private char Getkey1(string value, Dictionary<char, string> codes)
@@ -85,12 +79,16 @@ namespace MubaNet2
             return ' ';
         }
 
-        private string decipher_step_two(List<int> code)
+        private string decipher_step_two()
         {
+            string[] comp = cod1.Split(' ');
             StringBuilder text = new StringBuilder();
-            foreach (var ch in code)
+            foreach (var ch in comp)
             {
-                text.Append(Getkey2(ch, dictionary));
+                if (ch != "")
+                {
+                    text.Append(Getkey2(Convert.ToInt32(ch), dictionary));
+                }
             }
             return text.ToString();
         }
